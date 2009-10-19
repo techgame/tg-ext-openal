@@ -21,9 +21,9 @@ __all__ = __all__.split()
 import weakref
 import atexit
 
-from TG.openAL._properties import *
-from TG.openAL.raw import al, alc
-from TG.openAL.context import Context
+from TG.ext.openAL._properties import *
+from TG.ext.openAL.raw import al, alc
+from TG.ext.openAL.context import Context
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Open AL Driver

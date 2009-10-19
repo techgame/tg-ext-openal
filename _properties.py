@@ -15,7 +15,7 @@ from itertools import takewhile, count
 from ctypes import cast, byref, c_void_p, _SimpleCData, POINTER
 
 from TG.kvObserving import KVObject
-from TG.openAL.raw import al, alc
+from TG.ext.openAL.raw import al, alc
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 

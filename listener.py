@@ -10,8 +10,8 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-from TG.openAL._properties import *
-from TG.openAL.raw import al, alc
+from TG.ext.openAL._properties import *
+from TG.ext.openAL.raw import al, alc
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 

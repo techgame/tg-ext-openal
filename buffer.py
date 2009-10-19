@@ -10,10 +10,10 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-from TG.openAL._properties import *
-from TG.openAL.constants import alFormatMap
-from TG.openAL.raw import al, alc, alut
-from TG.openAL.raw.errors import ALException
+from TG.ext.openAL._properties import *
+from TG.ext.openAL.constants import alFormatMap
+from TG.ext.openAL.raw import al, alc, alut
+from TG.ext.openAL.raw.errors import ALException
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Constants / Variables / Etc. 
@@ -207,7 +207,7 @@ class Buffer(ALIDContextObject):
             src.dequeue(self)
 
     def play(self):
-        from TG.openAL.source import Source
+        from TG.ext.openAL.source import Source
         return self.playOn(Source(self))
 
     def playOn(self, *srcs):

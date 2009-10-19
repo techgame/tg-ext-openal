@@ -12,10 +12,10 @@
 
 import time
 
-from TG.openAL._properties import *
-from TG.openAL.raw import al
+from TG.ext.openAL._properties import *
+from TG.ext.openAL.raw import al
 
-from TG.openAL.buffer import Buffer
+from TG.ext.openAL.buffer import Buffer
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 

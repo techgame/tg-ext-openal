@@ -10,9 +10,9 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-from TG.openAL._properties import *
-from TG.openAL.constants import alFormatMap
-from TG.openAL.raw import al, alc
+from TG.ext.openAL._properties import *
+from TG.ext.openAL.constants import alFormatMap
+from TG.ext.openAL.raw import al, alc
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Capture Context
