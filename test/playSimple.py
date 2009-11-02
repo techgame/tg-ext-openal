@@ -14,7 +14,7 @@
 import sys
 import time
 
-from TG import openAL
+from TG.ext import openAL
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 

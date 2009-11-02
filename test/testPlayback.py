@@ -10,7 +10,7 @@ import time
 from itertools import takewhile
 from TG.common.utilities import textWiggler
 
-from TG import openAL
+from TG.ext import openAL
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 

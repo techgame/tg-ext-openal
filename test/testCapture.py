@@ -12,7 +12,7 @@ from TG.common.utilities import textWiggler
 
 from TG.audioFormats.waveFile import WaveFormat
 
-from TG import openAL
+from TG.ext import openAL
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 
