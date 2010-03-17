@@ -10,6 +10,7 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+import sys
 from TG.ext.openAL._properties import *
 from TG.ext.openAL.constants import alFormatMap
 from TG.ext.openAL.raw import al, alc, alut
@@ -92,8 +93,7 @@ class Buffer(ALIDContextObject):
         try:
             self.destroy()
         except Exception:
-            import traceback
-            traceback.print_exc()
+            sys.excepthook(*sys.exc_info())
             raise
 
     def create(self):

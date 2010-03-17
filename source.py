@@ -10,6 +10,7 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+import sys
 import time
 
 from TG.ext.openAL._properties import *
@@ -128,8 +129,7 @@ class Source(ALIDContextObject):
         try:
             self.destroy()
         except Exception:
-            import traceback
-            traceback.print_exc()
+            sys.excepthook(*sys.exc_info())
             raise
 
     def process(self):

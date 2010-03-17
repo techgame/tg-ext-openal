@@ -10,6 +10,7 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+import sys
 from TG.ext.openAL._properties import *
 from TG.ext.openAL.raw import al, alc
 
@@ -26,8 +27,7 @@ class Context(ALIDObject):
         try:
             self.destroy()
         except Exception:
-            import traceback
-            traceback.print_exc()
+            sys.excepthook(*sys.exc_info())
             raise
 
     _mapping = {}
