@@ -110,6 +110,7 @@ def getSystemVolume_darwin(device=kAudioHardwarePropertyDefaultOutputDevice, cha
     key = kAudioDevicePropertyVolumeScalar
     for chanNum in channels:
         v = getAudioDeviceProperty(idAudioOutput, key, chanNum, result=c_float)
+        v = v.value
         if asDict: result.append((chanNum, v))
         else: result.append(v)
 
