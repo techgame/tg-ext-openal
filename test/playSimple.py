@@ -34,6 +34,7 @@ def play(filename):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if __name__=='__main__':
+    audioContext.processInThread()
     for e in sys.argv[1:]:
         play(e)
 

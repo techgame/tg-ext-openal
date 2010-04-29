@@ -11,6 +11,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import sys
+import time
+import threading
 from TG.ext.openAL._properties import *
 from TG.ext.openAL.raw import al, alc
 
@@ -83,6 +85,29 @@ class Context(ALIDObject):
     def makeCurrent(self):
         return bool(alc.alcMakeContextCurrent(self))
     select = makeCurrent
+
+    _ctxThread = None
+    def stopThread(self, timeout=1):
+        t = self._ctxThread 
+        if t is not None:
+            t.stopProcessing = True
+            t.wait(timeout)
+
+    def processInThread(self, start=True):
+        ctxThread = threading.Thread(None, self._processForeverInThread, "OpenAL-process-thread")
+        ctxThread.setDaemon(True)
+        ctxThread.stopThread = False
+        if start:
+            ctxThread.start()
+        self._ctxThread = ctxThread
+        return self._ctxThread
+
+    def _processForeverInThread(self, frequency=120):
+        sec = 1./frequency
+        ctxThread = threading.currentThread()
+        while not ctxThread.stopThread:
+            self.process()
+            time.sleep(sec)
 
     def process(self):
         self.makeCurrent()
@@ -168,29 +193,4 @@ class Context(ALIDObject):
         self.getCaptures().add(capture)
     def removeCapture(self, capture):
         self.getCaptures().discard(capture)
-
-    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    ##~ Buffer Collection
-    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    #_buffers = None
-    #def getBuffers(self):
-    #    if self._buffers is None:
-    #        self.setBuffers(set())
-    #    return self._buffers
-    #def setBuffers(self, buffers):
-    #    self._buffers = buffers
-    #def delBuffers(self):
-    #    if self._buffers is not None:
-    #        while self._buffers:
-    #            buf = self._buffers.pop()
-    #            if buf():
-    #                buf().destroy()
-    #        del self._buffers
-    #buffers = property(getBuffers, setBuffers, delBuffers)
-
-    #def addBuffer(self, buffer):
-    #    self.getBuffers().add(buffer)
-    #def removeBuffer(self, buffer):
-    #    self.getBuffers().discard(buffer)
 
