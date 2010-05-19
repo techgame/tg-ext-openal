@@ -172,6 +172,10 @@ class Buffer(ALIDContextObject):
             self._playingSrcs = set()
         return self._playingSrcs
     playingSources = property(getPlayingSources)
+    
+    def isPlaying(self):
+        return bool(self._playingSrcs)
+
 
     _queuedSrcs = None
     def getQueuedSources(self):
