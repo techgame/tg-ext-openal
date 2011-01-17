@@ -210,6 +210,7 @@ class Source(ALIDContextObject):
             curBuffer.playingSources.add(self)
             curBuffer.process()
         self._lastBuffer = curBuffer
+        self.dequeueProcessed()
         return curBuffer
     currentBuffer = property(getCurrentBuffer)
 
