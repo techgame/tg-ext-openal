@@ -17,6 +17,7 @@ from TG.ext.openAL._properties import *
 from TG.ext.openAL.raw import al
 
 from TG.ext.openAL.buffer import Buffer
+from TG.ext.openAL.raw.errors import ALException
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Definitions 
@@ -263,7 +264,11 @@ class Source(ALIDContextObject):
         buffers = [buf for buf in buffers if buf in self.getBufferQueue()]
         bufids = (al.ALuint * len(buffers))()
         bufids[:] = [buf._as_parameter_ for buf in buffers]
-        al.alSourceUnqueueBuffers(self, len(bufids), bufids)
+        try:
+            al.alSourceUnqueueBuffers(self, len(bufids), bufids)
+        except ALException, e:
+            if e.error != al.AL_ILLEGAL_COMMAND:
+                raise
 
         for buf in buffers:
             self.onDequeueBuffer(buf)
