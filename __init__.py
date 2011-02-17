@@ -11,6 +11,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 from raw import al, alc, alut
+from raw.errors import ALException
+
 from device import *
 from context import Context
 from capture import Capture
